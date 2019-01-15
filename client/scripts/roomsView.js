@@ -14,7 +14,7 @@ var RoomsView = {
 
   handleAddRoom: function() {
     Rooms.add(RoomsView.getRoomName);
-    RoomsView.renderRoom(RoomsView.getRoomName);
+    RoomsView.renderRoom(RoomsView.getRoomName());
     $('#addroom').val('');
   },
 
