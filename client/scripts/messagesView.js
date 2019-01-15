@@ -6,12 +6,12 @@ var MessagesView = {
 
   },
 
-  render: function() {
-    for (var key of Messages.messages) {
-      if (key.username !== undefined && key.text !== undefined && key.createdAt !== undefined) {
-        MessagesView.$chats.append(MessageView.render(key));
-      }
+  renderMessage: function(message) {
+   
+    if (message.username !== undefined && message.text !== undefined && message.roomname !== undefined) {
+      MessagesView.$chats.append(MessageView.render(message));
     }
+    
   }
 
 };
