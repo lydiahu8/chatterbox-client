@@ -17,6 +17,8 @@ var FormView = {
     };
 
     Parse.create(message);
+    $('#message').val('');
+    App.fetch(App.stopSpinner);
 
   },
 
