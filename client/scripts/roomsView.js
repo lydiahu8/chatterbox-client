@@ -13,9 +13,13 @@ var RoomsView = {
   },
 
   handleAddRoom: function() {
-    Rooms.add($('#addroom').val());
-    RoomsView.renderRoom($('#addroom').val());
+    Rooms.add(RoomsView.getRoomName);
+    RoomsView.renderRoom(RoomsView.getRoomName);
     $('#addroom').val('');
+  },
+
+  getRoomName: function() {
+    return $('#addroom').val();
   }
 
 };
