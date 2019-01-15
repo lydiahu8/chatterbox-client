@@ -13,18 +13,24 @@ var App = {
 
     // Fetch initial batch of messages
     App.startSpinner();
-    App.fetch(App.stopSpinner);
    
+    var refresh = function () {
+      App.fetch(App.stopSpinner);
+      setTimeout(function() { refresh(); }, 5000);
+    };
 
+    refresh();
   },
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      // console.log(data)
+
+      Messages.messages = [];
+      MessagesView.$chats.html('');
       for (var key of data.results) {
         Messages.messages.push(key);
-        // MessagesView.renderMessage();
+        MessagesView.renderMessage(key);
       }
 
       RoomsView.renderRoom();
