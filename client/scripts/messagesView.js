@@ -8,19 +8,22 @@ var MessagesView = {
 
   renderMessage: function(message) {
    
-    if (message.username !== undefined && message.text !== undefined && message.roomname !== undefined) {
+    if (message.username !== undefined && message.text !== undefined) {
+      Messages.messages.push(message);
+      if (message.roomname === undefined) {
+        message.roomname = '';
+      }
+      if (message.objectId === undefined && message.objectId !== '') {
+        message.objectId = 'dummy' + (Messages.messages.length - 1);
+      }
       var htmlMessage = MessageView.render(message);
-
-      // console.log($(htmlMessage));
 
       MessagesView.$chats.append(htmlMessage);
 
-      if (message.objectId !== undefined) {
-        $('.' + message.objectId).siblings('.username').on('click', function() { Friends.toggleStatus(message.username); });
-      }
-
+      $('.' + message.objectId).siblings('.username').on('click', function() { 
+        Friends.toggleStatus(message.username); 
+      });
     }
-    
   }
 
 };
