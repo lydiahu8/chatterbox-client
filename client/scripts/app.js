@@ -24,9 +24,11 @@ var App = {
       // console.log(data)
       for (var key of data.results) {
         Messages.messages.push(key);
+        // MessagesView.renderMessage();
       }
 
-      MessagesView.renderMessage();
+      RoomsView.renderRoom();
+
 
       callback();
     });
