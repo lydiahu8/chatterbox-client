@@ -24,21 +24,12 @@ var App = {
 
       for (var key of data.results) {
         Messages.messages.push(key);
-        if (key.username !== undefined && key.text !== undefined && key.createdAt !== undefined) {
-          key.username = this.escapeData(key.username);
-          key.text = this.escapeData(key.text);
-          key.createdAt = this.escapeData(key.createdAt);
-        }
       }
 
       MessagesView.render();
 
       callback();
     });
-  },
-
-  escapeData: function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\\<\>]/g, '\\$&');
   },
 
   startSpinner: function() {
