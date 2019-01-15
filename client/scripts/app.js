@@ -21,12 +21,12 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-
+      // console.log(data)
       for (var key of data.results) {
         Messages.messages.push(key);
       }
 
-      MessagesView.render();
+      MessagesView.renderMessage();
 
       callback();
     });
