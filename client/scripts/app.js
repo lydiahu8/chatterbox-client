@@ -6,7 +6,7 @@ var App = {
 
   initialize: function() {
     App.username = window.location.search.substr(10);
-
+    
     MessagesView.initialize();
     FormView.initialize();
     RoomsView.initialize();
@@ -16,6 +16,7 @@ var App = {
    
     var refresh = function () {
       App.fetch(App.stopSpinner);
+
       setTimeout(function() { refresh(); }, 5000);
     };
 
@@ -25,16 +26,14 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-
       Messages.messages = [];
       MessagesView.$chats.html('');
-      for (var key of data.results) {
-        Messages.messages.push(key);
-        MessagesView.renderMessage(key);
+      
+      for (var value of data.results) {
+        MessagesView.renderMessage(value);
       }
 
-      RoomsView.renderRoom();
-
+      Rooms.insert(data.results);
 
       callback();
     });
