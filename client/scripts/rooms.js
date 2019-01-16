@@ -1,8 +1,17 @@
 var Rooms = {
-  storage: [],
+  storage: {},
 
   add: function (room) {
-    this.storage.push(room);
+    if (this.storage[room] === undefined) {
+      RoomsView.renderRoom(room);
+      this.storage[room] = 1;
+    }
+  },
+
+  insert: function (messages) {
+    for (var value of messages) {
+      this.add(value.roomname);
+    }
   }
   
 };
