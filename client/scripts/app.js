@@ -30,7 +30,9 @@ var App = {
       MessagesView.$chats.html('');
       
       for (var value of data.results) {
-        MessagesView.renderMessage(value);
+        if (RoomsView.getSelectedRoom() === '---DEFAULT---' || (value.roomname !== undefined && value.roomname === RoomsView.getSelectedRoom())) {
+          MessagesView.renderMessage(value);
+        }
       }
 
       Rooms.insert(data.results);
