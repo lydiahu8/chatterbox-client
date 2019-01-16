@@ -4,6 +4,7 @@ var FormView = {
 
   initialize: function() {
     FormView.$form.on('submit', FormView.handleSubmit);
+
   },
 
   handleSubmit: function(event) {
@@ -12,7 +13,7 @@ var FormView = {
     
     var message = {
       username: App.username,
-      roomname: RoomsView.getRoomName(),
+      roomname: RoomsView.getSelectedRoom() === '---DEFAULT---' ? '' : RoomsView.getSelectedRoom(),
       text: FormView.getMessage()
     };
 
