@@ -8,11 +8,19 @@ body {
 #main, #chats {
     width: 500px;
     margin: auto;
-    text-align: left;
-    background: white;
+    background: #fcfcf9;
     padding: 50px 60px;
-    border: solid #ddd;
-    border-width: 0 1px 1px 1px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    
+}
+
+#chats {
+    text-align: left;
+}
+
+#main {
+    text-align: center;
 }
 
 #main h1 {
@@ -47,9 +55,8 @@ body {
 }
 
 form {
-    padding: 20px;
     padding-left: 0;
-    margin-bottom: 20px;
+    padding-top: 20px;
 }
 
 form input[type=text] {
@@ -57,25 +64,40 @@ form input[type=text] {
     width: 70%;
     font-size: 12px;
     padding: 5px;
+    resize: both;
+    border-radius: 10px;
+    outline: none;
+    
+}
+
+.submit:hover {
+    cursor: pointer;
 }
 
 .chat {
     padding: 5px;
     margin-bottom: 5px;
-    background-color: #eee;
+    background-color: #F6F6F6;
+    border-radius: 10px;
+    border: 2px solid lightblue;
 }
 
 .chat .username {
     font-weight: 800;
 }
 
+.username {
+    font-size: 1.15em;
+}
+
 .username:hover {
   text-decoration: underline;
   cursor: pointer;
+  color: darkgray;
 }
 
 .chat:hover {
-    background-color: #ddd;
+    background-color:lightcyan;
 }
 
 .spinner {
@@ -89,7 +111,41 @@ form input[type=text] {
 }
 
 .friend {
-    color: #fff;
-    background-color: #0090da;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    color: black;
+    background-color: lavender;
+    border: 2px solid mediumpurple;
 }
 
+.friend .username {
+    font-weight: bold
+}
+
+.roomSelect {
+    width: 10em;
+    outline: none;
+}
+
+#addroom {
+    outline: none;
+    border-radius: 10px;
+    width: 15em;
+}
+
+.createdAt {
+    display: flex;
+    justify-content: flex-end;
+    color: darkgray;
+    font-size: .75em;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
+}
